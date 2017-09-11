@@ -1,0 +1,5 @@
+{"front":"Who was the first US president?","back":"George Washington","type":"basic"}
+{"cloze":"Neil Armstrong","clozeDelete":"... was the first man on the moon.","type":"cloze"}
+{"front":"What is the question?","back":"The Question","type":"basic"}
+{"front":"blah?","back":"blah","type":"basic"}
+{"cloze":"hungry","clozeDelete":"Elizabeth is ...","type":"cloze"}
