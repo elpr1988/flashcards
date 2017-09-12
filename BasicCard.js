@@ -6,7 +6,7 @@ function BasicCard(front, back) {
 		var data = {
 			front: this.front,
 			back: this.back,
-			type: "basic"
+			type: "basic",
 		};
 		fs.appendFile("./log.txt", JSON.stringify(data) + "\r\n", function(err) {
 			if(err) {

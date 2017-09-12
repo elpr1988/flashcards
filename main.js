@@ -116,30 +116,35 @@ var review = function() {
 
 var displayQs = function(array, index) {
 	question = array[index];
-	var parseQ = JSON.parse(question);
-	var questionText;
-	var correctAns;
-	if(parseQ.type === "basic") {
-		questionText = parseQ.front;
-		correctAns = parseQ.back;
-	} else if (parseQ.type === "cloze") {
-		questionText = parseQ.clozeDelete;
-		correctAns = parseQ.cloze;
-	}
-	inquirer.prompt([{
-		name: "response",
-		message: questionText
-	}]).then(function(ans) {
-		if (ans.response === correctAns) {
-			console.log("Good Job!");
-			if (index < array.length - 1) {
-				displayQs(array, index + 1);
-			}
-		} else {
-			console.log("Wrong!");
-			if (index < array.length - 1) {
-				displayQs(array, index + 1);
-			}
+	if (question === undefined) {
+		console.log("You must create a card first");
+		start();
+	} else {
+		var parseQ = JSON.parse(question);
+		var questionText;
+		var correctAns;
+		if(parseQ.type === "basic") {
+			questionText = parseQ.front;
+			correctAns = parseQ.back;
+		} else if (parseQ.type === "cloze") {
+			questionText = parseQ.clozeDelete;
+			correctAns = parseQ.cloze;
 		}
-	});
+		inquirer.prompt([{
+			name: "response",
+			message: questionText
+		}]).then(function(ans) {
+			if (ans.response === correctAns) {
+				console.log("Good Job!");
+				if (index < array.length - 1) {
+					displayQs(array, index + 1);
+				}
+			} else {
+				console.log("Incorrect!");
+				if (index < array.length - 1) {
+					displayQs(array, index + 1);
+				}
+			}
+		});
+	}
 };
