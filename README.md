@@ -6,10 +6,10 @@ Backend for a basic flashcard application. Allows users to create two types of f
 
 A **cloze deletion** is simply a sentence that has had some of its text removed. For example, given the example above the application wil present the following:
 
-Full Text
+**Full Text:**
 "George Washington was the first president of the United States."
 
-Cloze Deletion
+**Cloze Deletion:**
 "George Washington"
 
 When reviewing the flashcard the user sees this:
